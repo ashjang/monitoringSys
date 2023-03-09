@@ -6,8 +6,8 @@
 
 
 
-<할 일>
-03.09
+### < 회의록 >
+#### 03.09
 1. 공개 데이터셋 (NTU RGB+D 60)
 2. HAR recognition 모델 https://paperswithcode.com/dataset/ntu-rgb-d
 3. OpenCV 동영상 저장 방법 
