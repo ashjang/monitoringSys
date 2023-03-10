@@ -46,17 +46,11 @@
  
  #### 파일 형식 
 -> S001 C001 P001 R001 A001
-
 SsssPpppRrrrAaaa
-
 S : Setup number (상황별 넘버 1: 리빙랩 / 2 : 연구실 / 3: 세미나실)
-
 C : Camera number (camera 1번)
-
 P : Performer id (사람 ID)
-
 R : replication number (반복 횟수)
-
 A : Action lable (동작 레이블 1~?)
 
 Skeleton data
