@@ -61,9 +61,13 @@ A : Action lable (동작 레이블 1~?)
 
 
 Skeleton data
+
 원래 shape (3, frame, 25, 사람수 2)
+
 (3 {x, y, z}, max_frame, num_joint, 2 {n_subjects})
+
 -> 3D Skeleton numpy 데이터 (25 body joints, 3 - x,y,z, frame 수만큼)
+
 
 
 ### ---------------------데이터 영상 수집시 주의점--------------------- ###
