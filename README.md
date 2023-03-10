@@ -17,7 +17,7 @@
 
 
 # 3.10 회의록
-시나리오
+##시나리오
 ************ Side view 침상 밖 시나리오 ************  
 1. 침대에 걸터 앉아 있다가 낙상 6회 실시
 2. 걷다가 낙상 6회
@@ -39,14 +39,16 @@
 
  =>>>> NTU RGB+D 60 Dataset 데이터 유형과 비슷한 환경으로 조성
  why? 많은 정보가 있음으로 빠르게 학습을 진행해볼 수 있음
+ 
  SsssCcccPpppRrrrAaaa_카메라종류.avi 혹은 skeleton(numpy)
  ex) S018C001P045R002A097_ir.avi
  18번째의
  
-파일 형식 
--> S01 P01 R01 A01
+##파일 형식 
+-> S001 C001 P001 R001 A001
 SsssPpppRrrrAaaa
 S : Setup number (상황별 넘버 1: 리빙랩 / 2 : 연구실 / 3: 세미나실)
+C : Camera number (camera 1번)
 P : Performer id (사람 ID)
 R : replication number (반복 횟수)
 A : Action lable (동작 레이블 1~?)
@@ -56,13 +58,14 @@ Skeleton data
 (3 {x, y, z}, max_frame, num_joint, 2 {n_subjects})
 -> 3D Skeleton numpy 데이터 (25 body joints, 3 - x,y,z, frame 수만큼)
 
----------------------데이터 영상 수집시 주의점--------------------- 
+
+##---------------------데이터 영상 수집시 주의점--------------------- 
 1. Skeleton data가 확실하게 나오게끔 수집
 2. mmWave Point cloud가 잘 나오게끔 동작 크게크게
 3. 3~8s의 길이 최대한 데이터
 4. Thermal 이미지 안짤리게
 
----------------------개선 필요한점 230309---------------------
+##---------------------개선 필요한점 230309---------------------
 1. IR 동영상 저장
 2. 파일형식 대로 저장 - 여러분
 3. Skeleton input shape 맞추기 - 여러분
