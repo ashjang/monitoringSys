@@ -81,3 +81,23 @@ Skeleton data
 2. 파일형식 대로 저장 - 여러분
 3. Skeleton input shape 맞추기 - 여러분
 4. mmWave x,y,z, 백터만 나오게끔
+
+
+
+
+# H/W kinect 사용법 및 설치법
+https://learn.microsoft.com/ko-kr/azure/kinect-dk/ 
+
+Kinect microsoft 공홈 사용법 
+
+https://github.com/ibaiGorordo/pyKinectAzure
+
+C로 구성된 sdk를 python으로 구동하기 위해서 위의 git을 참조하여 구동
+
+-> 공홈은 참조만 하고 위의 모듈 다운로드 및 첫 구동해보기
+
+error 뜨는 것들은 모듈 하나씩 설치해보기 
+
+
+
+
