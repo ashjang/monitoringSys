@@ -62,7 +62,8 @@ A : Action lable (동작 레이블 1~?)
 
 Skeleton data
 
-원래 shape (3, frame, 25, 사람수 2)
+원래 [x,y,z]
+-> shape (3, frame, 25, 사람수 2)
 
 (3 {x, y, z}, max_frame, num_joint, 2 {n_subjects})
 
