@@ -4,11 +4,13 @@
 import cv2
 import os
 from time import sleep
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def movToImg(fileName, video):
     print(fileName)
-    savePath = os.getcwd() + '/data/병동/1/Thermal/image/'
+    savePath = os.getcwd() + '/data/병동/2/RGB_Skeleton/image/'
     os.mkdir(savePath + fileName)
     cnt = 0
     while True:
@@ -18,18 +20,27 @@ def movToImg(fileName, video):
         
         frame = int(video.get(1))
         if frame % 1 == 0:
+            start = (100,180)
+            end = (530, 900)
+            output = np.zeros((end[0]-start[0], end[1]-start[1], 3), np.uint8)
+
+            for y in range(output.shape[1]):
+                for x in range(output.shape[0]):
+                    xp, yp = x + start[0], y+start[1]
+                    output[x,y] = image[xp,yp]
+            
             title = savePath + fileName + "/%d.jpg" % (frame)
-            cv2.imwrite(title, image)
+            cv2.imwrite(title, output)
             print(title + " 저장")
             
             cnt += 1
     
 
 def main():
-    filePath = os.getcwd() + '/data/병동/1/Thermal/'
+    filePath = os.getcwd() + '/data/병동/2/RGB_Skeleton/'
     # fileList = glob.glob(filePath)
     
-    files = os.listdir(os.getcwd() + '/data/병동/1/Thermal')
+    files = os.listdir(os.getcwd() + '/data/병동/2/RGB_Skeleton')
     # print(files)
     for item in files:
         if item == 'image' or item == '.DS_Store' or item == '.DS':
