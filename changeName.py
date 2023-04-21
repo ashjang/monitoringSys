@@ -9,10 +9,12 @@ files = natsort.natsorted(files)
 # print(files)
 
 
-# 모두 변경
+# 필요에따라 변경
 s = 1
 c = 1
 p = 1
+
+# 고정 변수
 r = 1
 a = 1
 
