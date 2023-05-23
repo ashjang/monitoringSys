@@ -66,11 +66,23 @@ def preprocess_skeleton_data(skeleton_data):
     smooth_data = smooth_skeleton_data(normalize_data)
     return smooth_data
 
+# 만약 numpy에 날짜가 포함되어 있다면
+def convert_to_skeleton(frames):
+    skeleton_frames = []
+    for frame in frames:
+        skeleton = np.array(frame[1:])  # Exclude the timestamp
+        # print(skeleton)
+        frameArr = []
+        for joint in skeleton:
+            jointToNp = np.array(joint)
+            frameArr.append(jointToNp)
+        skeleton_frames.append(np.array(frameArr))
 
+    return np.array(skeleton_frames)
 
 if __name__ == "__main__":
     skeleton_folder = "./Skeleton/"         # 수정해야함
-    preProcess_folder = "./preProcessed/"
+    preProcess_folder = "./preProcessed/"   # 수정해야함
 
     dictOfTypeIdx = {0:1, 1:2, 2:4, 3:27, 4:6,
                     5:7, 6:8, 7:9, 8:13, 9:14, 10:15,
@@ -82,14 +94,19 @@ if __name__ == "__main__":
         for file in files:
             if file.endswith('.npy'):
                 data = np.load(skeleton_folder + file, allow_pickle=True)
-                preprocessed_data = preprocess_skeleton_data(data.astype(float))
+                try:
+                    preprocessed_data = preprocess_skeleton_data(data.astype(float))
+                except ValueError:
+                    data = convert_to_skeleton(data)
+                    preprocessed_data = preprocess_skeleton_data(data.astype(float))
+                    
                 listOfData = preprocessed_data.tolist()
                 
                 listOfResult = [0 for _ in range(25)]
                 
                 with open(preProcess_folder + file.split(".")[0] + ".skeleton", 'w') as f:
                     f.write(str(len(listOfData)) + "\n\n")
-#                     f.write(str(preprocessed_data.shape) + "\n\n")      # shape
+                    # f.write(str(preprocessed_data.shape) + "\n\n")      # shape
                     
                     for i in range(len(listOfData)):
                         idx = 0
@@ -108,3 +125,4 @@ if __name__ == "__main__":
                         f.write("\n")
                         
                     f.close()
+    print("데이터 변환 완료하였습니다.")
