@@ -88,8 +88,8 @@ if __name__ == "__main__":
                 listOfResult = [0 for _ in range(25)]
                 
                 with open(preProcess_folder + file.split(".")[0] + ".skeleton", 'w') as f:
-                    
-                    f.write(str(preprocessed_data.shape) + "\n\n")      # shape
+                    f.write(str(len(listOfData)) + "\n\n")
+#                     f.write(str(preprocessed_data.shape) + "\n\n")      # shape
                     
                     for i in range(len(listOfData)):
                         idx = 0
